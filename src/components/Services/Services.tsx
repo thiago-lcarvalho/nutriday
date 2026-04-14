@@ -106,8 +106,8 @@ const plans = [
     featured: true,
   },
   {
-    id: "premio",
-    name: "Prêmio",
+    id: "premium",
+    name: "Premium",
     description: "A experiência completa. O melhor da Nutriday, todos os dias.",
     features: [
       "Tudo do Plus",

@@ -68,9 +68,6 @@ export default function CTASection() {
         </div>
       </div>
 
-      {/* Giant background text */}
-      <span className={styles.giantText}>ZAP</span>
-
       {/* Decorative elements */}
       <div className={styles.decorations}>
         <div className={styles.blob1}></div>
