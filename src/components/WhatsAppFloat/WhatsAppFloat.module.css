@@ -1,0 +1,95 @@
+.floatButton {
+  display: none;
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-lg);
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  color: var(--color-white);
+  border-radius: 20px 8px 20px 8px;
+  box-shadow: 4px 4px 0 var(--color-verde);
+  z-index: var(--z-modal);
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  transition: all var(--transition-bounce);
+  pointer-events: none;
+}
+
+.floatButton.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.floatButton:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-verde);
+  background: #1FAF57;
+}
+
+.floatButton:active {
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0 var(--color-verde);
+}
+
+.floatButton svg {
+  flex-shrink: 0;
+}
+
+/* Online indicator */
+.floatButton::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 14px;
+  height: 14px;
+  background: var(--color-laranja);
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+  animation: floatPulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes floatPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(238, 112, 30, 0.4);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px rgba(238, 112, 30, 0);
+  }
+}
+
+/* Only show on mobile/tablet */
+@media (max-width: 900px) {
+  .floatButton {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .floatButton {
+    width: 54px;
+    height: 54px;
+    bottom: var(--space-lg);
+    right: var(--space-md);
+    box-shadow: 3px 3px 0 var(--color-verde);
+  }
+
+  .floatButton::before {
+    width: 12px;
+    height: 12px;
+    top: -2px;
+    right: -2px;
+  }
+
+  .floatButton svg {
+    width: 24px;
+    height: 24px;
+  }
+}

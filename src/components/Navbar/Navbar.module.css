@@ -1,0 +1,233 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  padding: var(--space-lg) 0;
+  transition: all var(--transition-base);
+}
+
+.header.scrolled {
+  background-color: rgba(255, 253, 248, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  padding: var(--space-md) 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  z-index: calc(var(--z-sticky) + 1);
+  position: relative;
+  height: 44px;
+}
+
+/* Icon - hidden by default, shown on scroll */
+.logoIcon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scale(0.8);
+  opacity: 0;
+  transition: all var(--transition-base);
+}
+
+.logoIcon.show {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.logo:hover .logoIcon.show {
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Straight logo - shown by default, hidden on scroll */
+.logoStraight {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  transition: all var(--transition-base);
+  opacity: 1;
+}
+
+.logoStraight.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo:hover .logoStraight:not(.hide) {
+  opacity: 0.85;
+}
+
+/* Navigation Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+  list-style: none;
+}
+
+.navLinks a {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-verde);
+  position: relative;
+  padding: var(--space-xs) 0;
+}
+
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-laranja), var(--color-amarelo));
+  border-radius: 2px;
+  transition: width var(--transition-base);
+}
+
+.navLinks a:hover {
+  color: var(--color-laranja);
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+/* CTA Button - Organic Brazilian Style */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--color-verde);
+  border-radius: 20px 8px 20px 8px;
+  transition: all var(--transition-bounce);
+  white-space: nowrap;
+  box-shadow: 4px 4px 0 var(--color-laranja);
+  position: relative;
+  letter-spacing: 0.02em;
+}
+
+.ctaButton::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  background: #25D366;
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+}
+
+.ctaButton:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-laranja);
+  background: var(--color-verde-claro);
+}
+
+.ctaButton:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-laranja);
+}
+
+.ctaButton svg {
+  transition: transform var(--transition-base);
+}
+
+.ctaButton:hover svg {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 900px) {
+  .navLinks {
+    display: none;
+  }
+
+  .ctaButton {
+    padding: var(--space-sm) var(--space-sm);
+    width: 44px;
+    height: 44px;
+  }
+
+  .ctaText {
+    display: none;
+  }
+
+  .ctaButton svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: var(--space-md) 0;
+  }
+
+  .header.scrolled {
+    padding: var(--space-sm) 0;
+  }
+
+  .logo {
+    height: 36px;
+  }
+
+  .logoStraight {
+    width: 120px;
+  }
+
+  .logoIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ctaButton {
+    width: 40px;
+    height: 40px;
+    padding: var(--space-xs);
+    box-shadow: 3px 3px 0 var(--color-laranja);
+  }
+
+  .ctaButton::before {
+    width: 8px;
+    height: 8px;
+    top: -2px;
+    right: -2px;
+  }
+
+  .ctaButton svg {
+    width: 18px;
+    height: 18px;
+  }
+}
