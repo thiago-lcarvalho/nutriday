@@ -14,7 +14,7 @@ const features = [
   {
     id: "quebra-rotina",
     title: "Quebra de Rotina",
-    description: "Toda sexta-feira, proteínas especiais: feijoada, churrasco e mais. Porque sexta merece!",
+    description: "Toda sexta-feira, proteínas especiais: feijoada, chambaril, rabada, dobradinha, costela e mais!",
     size: "medium",
     accent: "laranja",
   },

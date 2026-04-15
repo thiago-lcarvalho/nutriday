@@ -30,7 +30,7 @@ const services = [
     title: "Dieta do Dia",
     badge: "Leve",
     description:
-      "Refeição balanceada voltada ao público administrativo. Porção individual em embalagem compartimentada.",
+      "Refeição balanceada e leve. Porção individual em embalagem compartimentada.",
     details: [
       "Proteína grelhada diária",
       "Arroz, feijão e saladas",
@@ -44,7 +44,7 @@ const services = [
     title: "Tentação do Dia",
     badge: "Especial",
     description:
-      "Uma terceira opção de proteína que entra no cardápio do self-service. Pratos como lasanha, camarão e massas especiais.",
+      "Uma terceira opção de proteína que entra no cardápio do self-service. Pratos como: lasanha, camarão e massas especiais.",
     details: [
       "Massas e pratos especiais",
       "Lasanha, camarão e mais",
@@ -57,9 +57,10 @@ const services = [
     title: "Sanduíche Gourmet",
     badge: "Prático",
     description:
-      "Opção rápida e saborosa. Pão bola com hambúrguer ou queijo e presunto, com escolha de salada.",
+      "Opção rápida e saborosa. Pão redondo com gergelim, hambúrguer, ovo, queijo e presunto. A salada é o que diferencia.",
     details: [
-      "Hambúrguer ou queijo e presunto",
+      "Pão redondo com gergelim",
+      "Hambúrguer, ovo, queijo e presunto",
       "Tradicional (alface e tomate)",
       "Ou cebola caramelizada",
     ],
@@ -81,41 +82,70 @@ const services = [
 
 const plans = [
   {
-    id: "essencial",
-    name: "Essencial",
-    description: "O básico bem-feito para quem busca custo-benefício.",
+    id: "premium",
+    name: "Premium",
+    subtitle: "4 opções de serviço/dia",
+    description: "A experiência completa. O melhor da Nutriday, todos os dias.",
     features: [
-      "Self-service completo",
-      "Saladas variadas",
-      "Sobremesa do dia",
-      "Bebida inclusa",
+      "8 opções de salada",
+      "Sobremesa elaborada ou fruta",
+      "300ml de suco de polpa",
+      "2 opções de arroz",
+      "2 opções de feijão",
+      "2 opções de guarnição",
+      "2 opções de proteína",
+      "Tentação do Dia inclusa",
+      "Dieta do Dia inclusa",
+      "Sanduíche Gourmet incluso",
     ],
-    accent: "verde-claro",
+    differentials: [
+      "Quebra de rotina às sextas",
+      "Torta dos aniversariantes",
+      "Dia do poço dos desejos",
+      "Campanhas mensais",
+      "Cardápio especial em datas comemorativas",
+    ],
+    accent: "verde",
+    featured: true,
   },
   {
     id: "plus",
     name: "Plus",
+    subtitle: "2 opções de serviço/dia",
     description: "Mais variedade e opções para equipes que merecem um algo a mais.",
     features: [
-      "Tudo do Essencial",
-      "Maior variedade de saladas",
-      "Sobremesas diferenciadas",
+      "6 opções de salada",
+      "Sobremesa elaborada 1x na semana",
+      "300ml de suco de polpa",
+      "1 opção de arroz",
+      "1 opção de feijão",
+      "2 opções de guarnição",
+      "2 opções de proteína",
       "Tentação do Dia inclusa",
     ],
+    differentials: [
+      "Quebra de rotina às sextas",
+      "Cardápio especial em datas comemorativas",
+    ],
     accent: "laranja",
-    featured: true,
   },
   {
-    id: "premium",
-    name: "Premium",
-    description: "A experiência completa. O melhor da Nutriday, todos os dias.",
+    id: "essencial",
+    name: "Essencial",
+    subtitle: "2 opções de serviço/dia",
+    description: "O básico bem-feito para quem busca custo-benefício.",
     features: [
-      "Tudo do Plus",
-      "8 opções de salada na rampa",
-      "Sobremesa elaborada diária",
-      "Cardápio premium completo",
+      "4 opções de salada",
+      "1 opção de arroz",
+      "1 opção de feijão",
+      "2 opções de guarnição",
+      "2 opções de proteína",
+      "Tentação do Dia inclusa",
     ],
-    accent: "verde",
+    differentials: [
+      "Quebra de rotina às sextas",
+    ],
+    accent: "verde-claro",
   },
 ];
 
@@ -223,9 +253,10 @@ export default function Services() {
                 style={{ animationDelay: `${0.15 + index * 0.12}s` }}
               >
                 {plan.featured && (
-                  <span className={styles.planBadge}>Mais popular</span>
+                  <span className={styles.planBadge}>Recomendado</span>
                 )}
                 <h3 className={styles.planName}>{plan.name}</h3>
+                <span className={styles.planSubtitle}>{plan.subtitle}</span>
                 <p className={styles.planDescription}>{plan.description}</p>
                 <ul className={styles.planFeatures}>
                   {plan.features.map((feature) => (
@@ -235,6 +266,19 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                {plan.differentials && (
+                  <div className={styles.planDifferentials}>
+                    <span className={styles.planDiffLabel}>Diferenciais</span>
+                    <ul className={styles.planDiffList}>
+                      {plan.differentials.map((diff) => (
+                        <li key={diff}>
+                          <span className={styles.starIcon}>★</span>
+                          {diff}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
                     `Olá! Vim pelo site e gostaria de saber mais sobre o plano ${plan.name}.`

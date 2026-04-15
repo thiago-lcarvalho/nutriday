@@ -58,7 +58,7 @@ export default function Hero() {
           </h1>
 
           <p className={`${styles.subtitle} ${styles.animateIn}`}>
-            17 anos cuidando da alimentação de quem faz Alagoas crescer.
+            Há 17 anos cuidando da alimentação de quem faz Alagoas crescer.
             Estrutura completa, cardápio variado e aquele tempero brasileiro
             que só a gente tem.
           </p>

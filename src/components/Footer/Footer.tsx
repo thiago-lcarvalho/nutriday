@@ -78,11 +78,16 @@ export default function Footer() {
             <div className={styles.linksColumn}>
               <h4>Atendemos</h4>
               <ul>
-                <li>Indústrias e Fábricas</li>
-                <li>Hotéis e Pousadas</li>
+                <li>Indústrias</li>
                 <li>Usinas</li>
-                <li>Empresas</li>
+                <li>Hotéis</li>
+                <li>Escritórios e empresas administrativas</li>
+                <li>Hospitais, clínicas e instituições de saúde</li>
+                <li>Empresas de energia</li>
+                <li>Escolas</li>
+                <li>Facilities e empresas terceirizadas</li>
               </ul>
+              <small className={styles.footerNote}>Acima de 100 colaboradores</small>
             </div>
 
             {/* Contact Column */}
@@ -91,9 +96,9 @@ export default function Footer() {
               <address className={styles.address}>
                 <p>
                   <strong>Endereço:</strong>
-                  Rod. Divaldo Suruagy, km 12<br />
-                  Polo Multifabril<br />
-                  Marechal Deodoro - AL
+                  R. do Uruguai, 224<br />
+                  Jaraguá<br />
+                  Maceió - AL, 57.022-120
                 </p>
                 <p>
                   <strong>WhatsApp:</strong>

@@ -80,7 +80,7 @@ export default function About() {
                 <div className={styles.founderAvatar}>A</div>
                 <div className={styles.founderInfo}>
                   <strong>Adrícia Gusmão</strong>
-                  <span>Nutricionista RT · 22 anos de exp.</span>
+                  <span>Nutricionista RT · CRN-6: 4013 · 22 anos de exp.</span>
                 </div>
               </div>
               <div className={styles.founder}>
