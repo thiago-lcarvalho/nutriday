@@ -114,12 +114,17 @@
   margin-bottom: var(--space-sm);
 }
 
-.linksColumn a,
-.linksColumn li {
+.linksColumn a {
   font-size: var(--text-base);
   color: rgba(255, 255, 255, 0.7);
   transition: all var(--transition-base);
   display: inline-block;
+}
+
+.linksColumn li {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
 }
 
 .linksColumn a:hover {
@@ -289,12 +294,12 @@
     font-size: var(--text-sm);
   }
 
-  .linksColumn a,
-  .linksColumn li {
+  .linksColumn a {
     font-size: var(--text-sm);
   }
 
   .linksColumn li {
+    font-size: var(--text-sm);
     margin-bottom: var(--space-xs);
   }
 

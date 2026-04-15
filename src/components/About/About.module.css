@@ -48,6 +48,15 @@
   z-index: 2;
 }
 
+.founderPhoto {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 50% 50% 45% 55% / 45% 45% 55% 55%;
+  object-fit: cover;
+  box-shadow: var(--shadow-xl);
+}
+
 .imagePlaceholder {
   aspect-ratio: 3/4;
   max-width: 400px;

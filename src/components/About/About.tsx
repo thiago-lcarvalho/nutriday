@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import styles from "./About.module.css";
 
 export default function About() {
@@ -37,10 +38,13 @@ export default function About() {
           {/* Left: Image composition */}
           <div className={`${styles.imageSection} ${isVisible ? styles.visible : ""}`}>
             <div className={styles.mainImage}>
-              <div className={styles.imagePlaceholder}>
-                <span>Foto</span>
-                <small>Adrícia & Paulo</small>
-              </div>
+              <Image
+                src="/images/fundadores.jpg"
+                alt="Adrícia Gusmão e Paulo Sérgio - Fundadores da Nutriday"
+                width={500}
+                height={600}
+                className={styles.founderPhoto}
+              />
             </div>
 
             {/* Floating accent */}
