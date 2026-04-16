@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import styles from "./Hero.module.css";
 
 const WHATSAPP_NUMBER = "5582993132265";
@@ -84,17 +85,25 @@ export default function Hero() {
           <div className={`${styles.imageStack} ${styles.animateIn}`}>
             {/* Main image */}
             <div className={styles.mainImage}>
-              <div className={styles.imagePlaceholder}>
-                <span>Foto Principal</span>
-                {/* <small>Pratos coloridos / Equipe sorrindo</small> */}
-              </div>
+              <Image
+                src="/images/buffet-principal.jpg"
+                alt="Buffet Nutriday com variedade de pratos identificados"
+                width={480}
+                height={600}
+                className={styles.heroImage}
+                priority
+              />
             </div>
 
             {/* Floating accent image */}
             <div className={styles.accentImage}>
-              <div className={styles.imagePlaceholderSmall}>
-                <span>Detalhe</span>
-              </div>
+              <Image
+                src="/images/dieta-detalhe.jpg"
+                alt="Marmitas fitness com refeições balanceadas"
+                width={180}
+                height={180}
+                className={styles.heroImageSmall}
+              />
             </div>
 
             {/* Floating badge */}
